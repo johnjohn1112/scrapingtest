@@ -15,7 +15,7 @@ def getInternalLinks(bsObj, includeUrl):
     for link in bsObj.findAll("a", href=re.compile("^(\/|.*"+includeUrl+")")):
         if link.attrs['href'] is not None:
             if link.attrs['href'] not in internalLinks:
-                if(link.attrs['href'].startwith("/")):
+                if(link.attrs['href'].startswith("/")):
                     internalLinks.append(includeUrl+link.attrs['href'])
                 else:
                     internalLinks.append(link.attrs['href'])
